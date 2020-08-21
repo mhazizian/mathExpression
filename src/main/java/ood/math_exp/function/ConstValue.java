@@ -1,13 +1,13 @@
 package ood.math_exp.function;
 
-import ood.math_exp.Expression;
+import ood.math_exp.expression.Expression;
 
 import java.util.List;
 
 public class ConstValue extends Function {
     private double value;
 
-    public ConstValue(int value) {
+    public ConstValue(double value) {
         super();
         this.value = value;
     }

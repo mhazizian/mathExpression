@@ -1,6 +1,6 @@
 package ood.math_exp.function;
 
-import ood.math_exp.Expression;
+import ood.math_exp.expression.Expression;
 
 import java.util.List;
 

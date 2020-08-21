@@ -1,6 +1,6 @@
 package ood.math_exp.function;
 
-import ood.math_exp.Expression;
+import ood.math_exp.expression.Expression;
 
 import java.util.List;
 
@@ -26,6 +26,7 @@ public abstract class Function {
 //    public abstract Function derived(Variable variable);
 
     private static boolean isValidFunctionName(final String name) {
-        return name != null && name.length() != 0;
+        return true;
+//        return name != null && name.length() != 0;
     }
 }
