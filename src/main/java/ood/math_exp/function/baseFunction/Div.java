@@ -7,34 +7,36 @@ import ood.math_exp.function.Function;
 
 import java.util.List;
 
-public class Mul extends Function {
+public class Div extends Function {
 
-    public Mul() {
+    public Div() {
         super("mul");
     }
 
     public double apply(List<Expression> args) {
-        double result = 1;
-        for (Expression exp : args) {
-            result *= exp.evaluate();
-        }
-        return result;
+        double denominator = args.get(1).evaluate();
+        if (denominator == 0)
+            throw new ArithmeticException("Div by zero");
+        return args.get(0).evaluate() / denominator;
     }
 
 
     public Expression derivative(Variable variable, List<Expression> args) {
         Expression exp1 = new MExpression(
-                this,
+                new Mul(),
                 args.get(0).derivative(variable),
                 args.get(1)
         );
 
         Expression exp2 = new MExpression(
-                this,
+                new Mul(),
                 args.get(0),
                 args.get(1).derivative(variable)
         );
 
-        return new MExpression(new Sum(), exp1, exp2);
+        Expression numerator = new MExpression(new Sub(), exp1, exp2);
+        Expression denominator = new MExpression(new Mul(), args.get(1), args.get(1));
+
+        return new MExpression(new Div(), numerator, denominator);
     }
 }
