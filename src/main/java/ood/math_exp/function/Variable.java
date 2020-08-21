@@ -1,20 +1,19 @@
 package ood.math_exp.function;
 
-public class Variable {
-    private final String name;
-    private double value;
+import ood.math_exp.Expression;
 
+import java.util.List;
+
+public class Variable extends Function{
+    private final String name;
 
     public Variable(String name) {
+        super();
         this.name = name;
     }
 
-
-    public double getValue() {
-        return value;
+    public double apply(List<Expression> args) {
+        throw new IllegalArgumentException("Variable " + this.name + " is NaN");
     }
 
-    public void setValue(double value) {
-        this.value = value;
-    }
 }
