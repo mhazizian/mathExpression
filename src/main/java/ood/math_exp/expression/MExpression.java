@@ -1,6 +1,7 @@
 package ood.math_exp.expression;
 
 import ood.math_exp.function.Function;
+import ood.math_exp.function.UserFunction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,8 +22,15 @@ public class MExpression implements Expression{
             this.inputArgs = Arrays.asList(args);
     }
 
+    public MExpression(String functionName, Expression... args) {
+        this.function = new UserFunction().getFunction(functionName);
+        if (args != null)
+            this.inputArgs = Arrays.asList(args);
+    }
+
     public MExpression(String functionName, List<Expression> args) {
-        // TODO add for custom functions.
+        this.function = new UserFunction().getFunction(functionName);
+        this.inputArgs = args;
     }
 
     public Expression evaluateVariable(Variable v, double value) {
