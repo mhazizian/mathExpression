@@ -6,6 +6,7 @@ import ood.math_exp.expression.MExpression;
 import ood.math_exp.expression.Variable;
 import ood.math_exp.function.Function;
 import ood.math_exp.function.UserFunction;
+import ood.math_exp.function.baseFunction.Mul;
 import org.junit.Test;
 
 import java.util.List;
@@ -74,7 +75,7 @@ public class UserFunctionTest {
 
                     @Override
                     public Expression derivative(Variable variable, List<Expression> args) {
-                        return new ConstExp(0);
+                        return new MExpression(new Mul(), args.get(0).derivative(variable), new ConstExp(10));
                     }
                 }
         );

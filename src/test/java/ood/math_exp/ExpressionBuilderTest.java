@@ -33,7 +33,7 @@ public class ExpressionBuilderTest {
     }
 
     @Test
-    public void testVariableExpressionWithMultipleVarialbe() {
+    public void testVariableExpressionWithMultipleVariable() {
         Variable x = new Variable("x");
         Variable y = new Variable("y");
         Expression sum = new MExpression(new Sum(), x, y);
