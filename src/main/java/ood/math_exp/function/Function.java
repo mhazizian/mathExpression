@@ -1,11 +1,12 @@
 package ood.math_exp.function;
 
 import ood.math_exp.expression.Expression;
+import ood.math_exp.expression.Variable;
 
 import java.util.List;
 
 public abstract class Function {
-    protected final String name;
+    private final String name;
 
     public Function(String name) {
         if (!isValidFunctionName(name)) {
@@ -23,7 +24,7 @@ public abstract class Function {
     }
 
     public abstract double apply(List<Expression> args);
-//    public abstract Function derived(Variable variable);
+    public abstract Expression derived(Variable variable);
 
     private static boolean isValidFunctionName(final String name) {
         return true;

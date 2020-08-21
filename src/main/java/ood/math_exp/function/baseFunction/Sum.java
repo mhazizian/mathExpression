@@ -1,7 +1,7 @@
 package ood.math_exp.function.baseFunction;
 
 import ood.math_exp.expression.Expression;
-import ood.math_exp.function.Variable;
+import ood.math_exp.expression.Variable;
 import ood.math_exp.function.Function;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class Sum extends Function {
     }
 
 
-    public Function derived(Variable variable) {
+    public Expression derived(Variable variable) {
         return null;
     }
 }

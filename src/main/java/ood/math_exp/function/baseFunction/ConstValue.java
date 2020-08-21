@@ -1,6 +1,10 @@
-package ood.math_exp.function;
+package ood.math_exp.function.baseFunction;
 
+import ood.math_exp.expression.ConstExp;
 import ood.math_exp.expression.Expression;
+import ood.math_exp.expression.MExpression;
+import ood.math_exp.function.Function;
+import ood.math_exp.expression.Variable;
 
 import java.util.List;
 
@@ -16,8 +20,8 @@ public class ConstValue extends Function {
         return this.value;
     }
 
-    public Function derived(Variable variable) {
-        return new ConstValue(0);
+    public Expression derived(Variable variable) {
+        return new ConstExp(0);
     }
 
 
