@@ -17,4 +17,10 @@ public class Variable implements Expression {
     public double evaluate() {
         throw new IllegalArgumentException("Variable " + this.name + " is NaN");
     }
+
+    public Expression derivative(Variable v) {
+        if (v == this)
+            return new ConstExp(1);
+        return new ConstExp(0);
+    }
 }

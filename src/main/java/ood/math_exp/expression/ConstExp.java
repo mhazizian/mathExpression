@@ -1,24 +1,22 @@
 package ood.math_exp.expression;
 
-import ood.math_exp.function.Function;
-import ood.math_exp.function.baseFunction.ConstValue;
 
 public class ConstExp implements Expression {
-    private Function function;
+    private double value;
 
     public ConstExp(double value) {
-        this.function = new ConstValue(value);
-    }
-
-    public ConstExp(ConstValue function) {
-        this.function = function;
+        this.value = value;
     }
 
     public Expression evaluateVariable(Variable v, double value) {
-        return new ConstExp((ConstValue) this.function);
+        return new ConstExp(this.value);
     }
 
     public double evaluate() {
-        return this.function.apply(null);
+        return this.value;
+    }
+
+    public Expression derivative(Variable v) {
+        return new ConstExp(0);
     }
 }

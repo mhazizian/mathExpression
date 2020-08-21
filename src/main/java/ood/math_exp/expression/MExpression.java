@@ -37,4 +37,8 @@ public class MExpression implements Expression{
     public double evaluate() {
         return this.function.apply(this.inputArgs);
     }
+
+    public Expression derivative(Variable v) {
+        return function.derivative(v, inputArgs);
+    }
 }

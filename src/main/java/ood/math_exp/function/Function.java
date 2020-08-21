@@ -24,10 +24,9 @@ public abstract class Function {
     }
 
     public abstract double apply(List<Expression> args);
-    public abstract Expression derived(Variable variable);
+    public abstract Expression derivative(Variable variable, List<Expression> args);
 
     private static boolean isValidFunctionName(final String name) {
         return true;
-//        return name != null && name.length() != 0;
     }
 }

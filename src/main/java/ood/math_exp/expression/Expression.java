@@ -1,6 +1,8 @@
 package ood.math_exp.expression;
 
 public interface Expression {
-    public Expression evaluateVariable(Variable v, double value);
-    public double evaluate();
+    Expression evaluateVariable(Variable v, double value);
+    double evaluate();
+
+    Expression derivative(Variable v);
 }

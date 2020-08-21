@@ -1,9 +1,11 @@
 package ood.math_exp.function.baseFunction;
 
 import ood.math_exp.expression.Expression;
+import ood.math_exp.expression.MExpression;
 import ood.math_exp.expression.Variable;
 import ood.math_exp.function.Function;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sum extends Function {
@@ -21,7 +23,12 @@ public class Sum extends Function {
     }
 
 
-    public Expression derived(Variable variable) {
-        return null;
+    public Expression derivative(Variable variable, List<Expression> args) {
+        List<Expression> newArgs = new ArrayList<Expression>();
+
+        for (Expression arg : args)
+            newArgs.add(arg.derivative(variable));
+
+        return new MExpression(this, newArgs);
     }
 }
